@@ -7,14 +7,14 @@ import { RecipeApiService } from '../recipe-api.service';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  @Input() recipes : [];
+  @Input() recipeList : [];
+  @Input() recipes: any;
   constructor(private _service: RecipeApiService) { }
 
   ngOnInit() {
-    this._service.getRecipes('apple').subscribe((data: any) => this.recipes = data.hits)
-
+    this._service.getRecipes('apple').subscribe((data: any) => this.recipeList = data.hits)
   }
   getList() {
-    console.log(this.recipes);
+    console.log(this.recipeList);
   }
 }
