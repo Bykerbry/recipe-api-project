@@ -1,3 +1,13 @@
 <p>recipe-list works!</p>
 
-<button (click) = "getList()">test</button>
+<button (click)="getList()">test</button>
+
+<ng-container>
+    <div *ngFor="let recipe of recipes">
+        <div>
+            {{recipe.recipe.label}}
+            <img class="image" [src]="recipe.recipe.image" />
+            <a href="{{recipe.recipe.url}}">check out the full recipe</a>
+        </div>
+    </div>
+</ng-container>
