@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-search-criteria',
@@ -7,8 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchCriteriaComponent implements OnInit {
 
+  addingFilters: boolean = false;
+  @Output() onSearch = new EventEmitter<any>();
+
   constructor() { }
 
+  onSearchRecipes(search: string) {
+    this.onSearch.emit(search);
+  }
+  addFilters() {
+    this.addingFilters = true;
+  }
   ngOnInit() {
   }
 

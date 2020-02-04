@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'recipe-api-project';
+  search: string;
+  searched(search: string) {
+    this.search = search;
+    console.log('from app-component');
+    console.log(this.search);
+  }
 }

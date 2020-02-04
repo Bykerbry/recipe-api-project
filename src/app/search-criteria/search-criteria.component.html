@@ -1,1 +1,4 @@
-<p>search-criteria works!</p>
+<label for="search">Search</label>
+<input type="text" name='search' id="search" [(ngModel)]="search">
+<button (click)='onSearchRecipes(search)'>Search</button>
+<button (click)='addFilters()'>Filter</button>

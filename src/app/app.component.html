@@ -1,4 +1,3 @@
-
 <nav>
   <a routerLink="/Home" routerLinkActive="active">Home</a> 
   <a routerLink="/Favorites" routerLinkActive="active">Favorites</a>
@@ -6,4 +5,8 @@
 </nav>
 <router-outlet></router-outlet>
 
-<app-recipe-list></app-recipe-list>
+<app-search-criteria (onSearch)=searched($event)></app-search-criteria>
+<div *ngIf="search">
+  <app-recipe-list></app-recipe-list>
+</div>
+
