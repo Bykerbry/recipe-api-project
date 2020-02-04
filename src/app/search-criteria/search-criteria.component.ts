@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { RecipeApiService } from '../recipe-api.service'
+
 
 @Component({
   selector: 'app-search-criteria',
@@ -7,16 +7,17 @@ import { RecipeApiService } from '../recipe-api.service'
   styleUrls: ['./search-criteria.component.css']
 })
 export class SearchCriteriaComponent implements OnInit {
-  data: any;
+
+  addingFilters: boolean = false;
   @Output() onSearch = new EventEmitter<any>();
-  constructor(private _service: RecipeApiService) { }
+
+  constructor() { }
 
   onSearchRecipes(search: string) {
-    this._service.getRecipes(search).subscribe(response => {
-      this.data = response;
-      this.onSearch.emit(this.data);
-      console.log(this.data);
-    });
+    this.onSearch.emit(search);
+  }
+  addFilters() {
+    this.addingFilters = true;
   }
   ngOnInit() {
   }

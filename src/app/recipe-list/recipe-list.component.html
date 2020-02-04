@@ -2,12 +2,14 @@
 
 <button (click)="getList()">test</button>
 
-<ng-container>
-    <div *ngFor="let recipe of recipes">
-        <div>
-            {{recipe.recipe.label}}
-            <img class="image" [src]="recipe.recipe.image" />
-            <a href="{{recipe.recipe.url}}">check out the full recipe</a>
+
+    <ng-container>
+        <div *ngFor="let recipe of recipes">
+            <div>
+                {{recipe.recipe.label}}
+                <img class="image" [src]="recipe.recipe.image" />
+                <a href="{{recipe.recipe.url}}">check out the full recipe</a>
+            </div>
         </div>
-    </div>
-</ng-container>
+    </ng-container>
+
