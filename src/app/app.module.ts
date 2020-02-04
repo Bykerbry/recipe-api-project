@@ -7,6 +7,7 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchCriteriaComponent } from './search-criteria/search-criteria.component';
 import { FavoritesPageComponent } from './favorites-page/favorites-page.component';
+import { FormsModule } from '@angular/forms'
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FavoritesPageComponent } from './favorites-page/favorites-page.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
