@@ -12,6 +12,7 @@ export class RecipeListComponent implements OnInit {
 
   ngOnInit() {
     this._service.getRecipes('apple').subscribe((data: any) => this.recipes = data.hits)
+
   }
   getList() {
     console.log(this.recipes);
