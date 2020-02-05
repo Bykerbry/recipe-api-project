@@ -1,17 +1,22 @@
 import { Component } from '@angular/core';
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent { 
   title = 'recipe-api-project';
-  search: string;
-  searched(search: string) {
-    this.search = search;
-    console.log('from app-component');
-    console.log(this.search);
+
+  searchQuery: string;
+
+  setSearchQuery(search: string) {
+    console.log(search);
+    this.searchQuery = ''
+    setTimeout( () => {
+      this.searchQuery = search
+    }, 0); 
   }
 }

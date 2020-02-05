@@ -9,12 +9,13 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class SearchCriteriaComponent implements OnInit {
 
   addingFilters: boolean = false;
-  @Output() onSearch = new EventEmitter<any>();
+  @Output() onRecipesSearched = new EventEmitter<any>();
 
   constructor() { }
 
   onSearchRecipes(search: string) {
-    this.onSearch.emit(search);
+    this.onRecipesSearched.emit(search);
+    console.log(search);
   }
   addFilters() {
     this.addingFilters = true;

@@ -1,4 +1,4 @@
-<app-search-criteria (onSearch)=searched($event)></app-search-criteria>
-<div *ngIf="search">
-  <app-recipe-list></app-recipe-list>
+<app-search-criteria (onRecipesSearched)='setSearchQuery($event)'></app-search-criteria>
+<div *ngIf="searchQuery">
+  <app-recipe-list [searchQuery]='searchQuery'></app-recipe-list>
 </div>

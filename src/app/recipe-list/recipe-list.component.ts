@@ -7,15 +7,22 @@ import { RecipeApiService } from '../recipe-api.service';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  recipe : [];
-  @Input() search: any
+  recipes: any[];
+  @Input() searchQuery: any
   constructor(private _service: RecipeApiService) { }
 
-  ngOnInit() {
-    console.log(this.search); 
-    this._service.getRecipes(this.search).subscribe((data: any) => this.recipe = data.hits)
+  ngOnInit() { 
+    this.getRecipes(this.searchQuery);
+    console.log(this.searchQuery);
+  }
+  getRecipes(search: string) {
+    this._service.getRecipes(search).subscribe((data: any) => {
+      this.recipes = data.hits.map((index: any) => index.recipe);
+      console.log(this.recipes);
+    })
   }
   getList() {
-    console.log(this.recipe);
+    console.log(this.searchQuery);
+    console.log(this.recipes);
   }
 }
