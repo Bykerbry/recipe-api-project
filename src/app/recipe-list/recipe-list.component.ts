@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RecipeApiService } from '../recipe-api.service';
+import { IParams } from '../search-params.interface'
 
 @Component({
   selector: 'app-recipe-list',
@@ -8,21 +9,17 @@ import { RecipeApiService } from '../recipe-api.service';
 })
 export class RecipeListComponent implements OnInit {
   recipes: any[];
-  @Input() searchQuery: any
+  @Input() searchParameters: IParams;
   constructor(private _service: RecipeApiService) { }
 
   ngOnInit() { 
-    this.getRecipes(this.searchQuery);
-    console.log(this.searchQuery);
-  }
-  getRecipes(search: string) {
-    this._service.getRecipes(search).subscribe((data: any) => {
+    this._service.getRecipes(this.searchParameters).subscribe((data: any) => {
       this.recipes = data.hits.map((index: any) => index.recipe);
-      console.log(this.recipes);
     })
   }
+
   getList() {
-    console.log(this.searchQuery);
+    console.log(this.searchParameters);
     console.log(this.recipes);
   }
 }

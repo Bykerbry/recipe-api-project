@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { IParams } from './search-params.interface';
 
 
 @Component({
@@ -10,13 +10,12 @@ import { Component } from '@angular/core';
 export class AppComponent { 
   title = 'recipe-api-project';
 
-  searchQuery: string;
+  searchParameters: IParams;
 
-  setSearchQuery(search: string) {
-    console.log(search);
-    this.searchQuery = ''
+  setSearchParameters(search: IParams) {
+    this.searchParameters = null
     setTimeout( () => {
-      this.searchQuery = search
+      this.searchParameters = search
     }, 0); 
   }
 }

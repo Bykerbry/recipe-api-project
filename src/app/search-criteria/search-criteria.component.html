@@ -1,4 +1,21 @@
-<label for="search">Search</label>
-<input type="text" name='search' id="search" [(ngModel)]="searchVal">
-<button (click)='onSearchRecipes(searchVal)'>Search</button>
-<button (click)='addFilters()'>Filter</button>
+<div class="search-container">
+    <label for="search">Search</label>
+    <input type="text" name='search' id="search" [(ngModel)]="searchText">
+    <button (click)='onSearchRecipes(searchText)' [disabled]='addingFilters'>Search</button>
+    <button (click)='addFilters()'>Filter</button>    
+</div>
+
+<div *ngIf="addingFilters">
+    <div class="calory-range">
+        <input type="number" name="cal-min" placeholder="Min" [(ngModel)]="min">
+        -
+        <input type='number' name="cal-max" placeholder="Max" [(ngModel)]="max">
+    </div>
+    <div class="diet-restrictions">
+        <div *ngFor="let diet of dietRestrictions">
+            <label for="diet.name">{{ dietDisplay(diet.name) }}</label>
+            <input [(ngModel)]="diet.checked" type="checkbox" name="diet.name" id="diet.name">
+        </div>
+    </div>
+    <button (click)='updateFilters(min, max)'>Add Filters</button>
+</div>

@@ -1,5 +1,5 @@
 <button (click)="getList()">test</button>
-<div *ngIf="searchQuery">
+<div *ngIf="recipes">
     <div *ngFor="let recipe of recipes">
         <div>
             {{recipe.label}}
@@ -8,5 +8,8 @@
         </div>
     </div>
 </div>
+<div *ngIf="!recipes">Loading...</div>
+
+
 
 
