@@ -13,6 +13,7 @@ export class RecipeListComponent implements OnInit {
   recipes: any[];
   @Input() searchParameters: IParams;
   testArr: any;
+  val1: any;
   constructor(private _service: RecipeApiService) { }
 
   ngOnInit() { 
@@ -26,3 +27,4 @@ export class RecipeListComponent implements OnInit {
     console.log(this.recipes);
   }
 }
+
