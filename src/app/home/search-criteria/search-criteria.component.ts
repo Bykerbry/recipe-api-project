@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { IDiet } from '../search-params.interface'
+import { IDiet } from '../../search-params.interface'
 
 
 @Component({
@@ -37,6 +37,7 @@ export class SearchCriteriaComponent implements OnInit {
   addFilters() {
     this.addingFilters = true;
   }
+
   updateFilters(min: any, max: any) {
     if( min && max) {
       this.caloryRange = `&calories=${min}-${max}`;
@@ -48,6 +49,7 @@ export class SearchCriteriaComponent implements OnInit {
       this.caloryRange = null;
     };
     this.addingFilters = false;
+
   }
   dietDisplay(diet: string) {
     return diet.replace('-', ' ').substring(0, 1).toUpperCase() + diet.substring(1);

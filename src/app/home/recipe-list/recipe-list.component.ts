@@ -1,6 +1,13 @@
+<<<<<<< HEAD:src/app/recipe-list/recipe-list.component.ts
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { RecipeApiService } from '../recipe-api.service';
 import { IParams } from '../search-params.interface';
+=======
+import { Component, OnInit, Input } from '@angular/core';
+import { RecipeApiService } from '../../recipe-api.service';
+import { IParams } from '../../search-params.interface';
+import { ShareService } from '../../share.service';
+>>>>>>> f022e53b65c110b914df459ab5f55fd1541c73c9:src/app/home/recipe-list/recipe-list.component.ts
 
 
 @Component({
@@ -13,7 +20,12 @@ export class RecipeListComponent implements OnInit {
   favorites: any [] = []
 
   @Input() searchParameters: IParams;
+<<<<<<< HEAD:src/app/recipe-list/recipe-list.component.ts
   
+=======
+  testArr: any;
+  val1: any;
+>>>>>>> f022e53b65c110b914df459ab5f55fd1541c73c9:src/app/home/recipe-list/recipe-list.component.ts
   constructor(private _service: RecipeApiService) { }
 
   ngOnInit() { 
@@ -25,6 +37,7 @@ export class RecipeListComponent implements OnInit {
     console.log(this.searchParameters);
     console.log(this.recipes);
   }
+<<<<<<< HEAD:src/app/recipe-list/recipe-list.component.ts
   @Output () faves = new EventEmitter <boolean>();
   
   isFave : true;
@@ -39,3 +52,7 @@ export class RecipeListComponent implements OnInit {
   
 
   
+=======
+}
+
+>>>>>>> f022e53b65c110b914df459ab5f55fd1541c73c9:src/app/home/recipe-list/recipe-list.component.ts
