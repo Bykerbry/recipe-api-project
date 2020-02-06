@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { IDiet } from '../search-params.interface'
-import { ShareService } from '../share.service'
+import { IDiet } from '../../search-params.interface'
 
 
 @Component({
@@ -10,7 +9,6 @@ import { ShareService } from '../share.service'
 })
 export class SearchCriteriaComponent implements OnInit {
 
-  testData: number[] = [1,2,3]
   addingFilters: boolean = false;
   caloryRange: string;
   dietRestrictions: IDiet[] = [
@@ -27,11 +25,9 @@ export class SearchCriteriaComponent implements OnInit {
   ]
   @Output() onRecipesSearched = new EventEmitter<any>();
 
-  constructor(private share: ShareService) { }
+  constructor() { }
 
   onSearchRecipes(search: string) {
-    this.share.changeData(this.testData)
-    console.log(this.testData);
     this.onRecipesSearched.emit({
       query: search,
       dietFilters: this.dietRestrictions,
@@ -41,7 +37,7 @@ export class SearchCriteriaComponent implements OnInit {
   addFilters() {
     this.addingFilters = true;
   }
-  
+
   updateFilters(min: any, max: any) {
     if( min && max) {
       this.caloryRange = `&calories=${min}-${max}`;

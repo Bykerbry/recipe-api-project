@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RecipeListComponent } from './recipe-list/recipe-list.component';
+import { RecipeListComponent } from './home/recipe-list/recipe-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { SearchCriteriaComponent } from './search-criteria/search-criteria.component';
-import { FavoritesPageComponent } from './favorites-page/favorites-page.component';
-import { FormsModule } from '@angular/forms'
+import { HomeComponent } from './home/home.component'
+import { SearchCriteriaComponent } from './home/search-criteria/search-criteria.component';
+import { FavoritesPageComponent } from 'src/app/favorites-page/favorites-page.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms'
     AppComponent,
     RecipeListComponent,
     SearchCriteriaComponent,
-    FavoritesPageComponent
+    FavoritesPageComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

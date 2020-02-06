@@ -1,0 +1,7 @@
+
+
+<app-search-criteria (onRecipesSearched)='setSearchParameters($event)'></app-search-criteria>
+<div *ngIf="searchParameters">
+  <app-recipe-list [searchParameters]='searchParameters'></app-recipe-list>
+</div>
+

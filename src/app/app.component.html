@@ -1,11 +1,4 @@
 
-
-<app-search-criteria (onRecipesSearched)='setSearchParameters($event)'></app-search-criteria>
-<div *ngIf="searchParameters">
-  <app-recipe-list [searchParameters]='searchParameters'></app-recipe-list>
-</div>
-
-
 <nav>
   <a routerLink="/Home" routerLinkActive="active">Home</a> 
   <a routerLink="/Favorites" routerLinkActive="active">Favorites</a>

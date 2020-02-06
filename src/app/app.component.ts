@@ -9,13 +9,4 @@ import { IParams } from './search-params.interface';
 })
 export class AppComponent { 
   title = 'recipe-api-project';
-
-  searchParameters: IParams;
-
-  setSearchParameters(search: IParams) {
-    this.searchParameters = null
-    setTimeout( () => {
-      this.searchParameters = search
-    }, 0); 
-  }
 }
