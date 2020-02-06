@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { IDiet } from '../search-params.interface'
+import { IDiet } from '../search-params.interface';
 
 
 @Component({
@@ -8,7 +8,6 @@ import { IDiet } from '../search-params.interface'
   styleUrls: ['./search-criteria.component.css']
 })
 export class SearchCriteriaComponent implements OnInit {
-
   addingFilters: boolean = false;
   caloryRange: string;
   dietRestrictions: IDiet[] = [
@@ -36,6 +35,9 @@ export class SearchCriteriaComponent implements OnInit {
   }
   addFilters() {
     this.addingFilters = true;
+  }
+  stopFilters() {
+    this.addingFilters = false;
   }
   updateFilters(min: any, max: any) {
     if( min && max) {
