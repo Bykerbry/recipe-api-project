@@ -1,10 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-<<<<<<< HEAD:src/app/home/search-criteria/search-criteria.component.ts
 import { IDiet } from '../../search-params.interface'
-=======
-import { IDiet } from '../search-params.interface';
->>>>>>> ben:src/app/search-criteria/search-criteria.component.ts
-
 
 @Component({
   selector: 'app-search-criteria',
@@ -40,13 +35,10 @@ export class SearchCriteriaComponent implements OnInit {
   addFilters() {
     this.addingFilters = true;
   }
-<<<<<<< HEAD:src/app/home/search-criteria/search-criteria.component.ts
 
-=======
   stopFilters() {
     this.addingFilters = false;
   }
->>>>>>> ben:src/app/search-criteria/search-criteria.component.ts
   updateFilters(min: any, max: any) {
     if( min && max) {
       this.caloryRange = `&calories=${min}-${max}`;
