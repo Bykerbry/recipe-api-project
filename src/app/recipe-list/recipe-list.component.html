@@ -3,8 +3,10 @@
     <div *ngFor="let recipe of recipes">
         <div>
             {{recipe.label}}
-            <img class="image" [src]="recipe.image" />
+            <img class="image" [src]="recipe.image"/>
             <a href="{{recipe.url}}">check out the full recipe</a>
+            <input class="favorite" type="button" value= "&hearts;" 
+                    (click)="onFavorite(recipe)">
         </div>
     </div>
 </div>
