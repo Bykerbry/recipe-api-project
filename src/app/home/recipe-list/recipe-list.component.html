@@ -1,12 +1,9 @@
-
-
-<ng-container *ngIf="recipes">
-    <ng-container *ngFor="let recipe of recipes">
-        <div class="recipe-container">
-            <h3>{{ recipe.label }}</h3>
-            <img class="image" [src]="recipe.image" />
-            <a href="{{recipe.url}}">See Recipe</a>
-            <button (click)="onFavorite(recipe)">&hearts;</button>
+<div *ngIf="recipes">
+    <div *ngFor="let recipe of recipes">
+        <div>
+            {{recipe.label}}
+            <img class="image" [src]="recipe.image" (click)="openDialog(recipe)"/>
+            <a href="{{recipe.url}}">check out the full recipe</a>
         </div>
     </ng-container>
 </ng-container>
