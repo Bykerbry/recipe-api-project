@@ -1,4 +1,5 @@
-<h1>Favorites</h1>
-<ul>
-    <li>recipe</li>
-</ul>
+<div *ngFor = "let favorite of favorites"> {{ favorite.label}}
+    <img class="image" [src]="favorite.image"/>
+    <a href="{{favorite.url}}">check out the full recipe</a>
+    <button class = "remove" (click) = "onRemove(favorite)">X</button>
+</div>

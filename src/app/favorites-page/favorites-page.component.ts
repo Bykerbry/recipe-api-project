@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShareService } from './../share.service'
 
 @Component({
   selector: 'app-favorites-page',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./favorites-page.component.css']
 })
 export class FavoritesPageComponent implements OnInit {
-
-  constructor() { }
+  favorites: [];
+  constructor (private _share: ShareService) {
+    this._share.currentData.subscribe((data: any) => this.favorites = data)
+   }
 
   ngOnInit() {
   }

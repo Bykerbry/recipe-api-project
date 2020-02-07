@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IParams } from '../search-params.interface'
+import { ShareService } from './../share.service'
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,10 @@ import { IParams } from '../search-params.interface'
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
-
+  retrievedData: any;
+  constructor(private _share: ShareService) {
+    this._share.currentData.subscribe(data => this.retrievedData = data)
+  }
   searchParameters: IParams;
 
   setSearchParameters(search: IParams) {
@@ -19,6 +21,7 @@ export class HomeComponent implements OnInit {
     }, 0); 
   }
   ngOnInit() {
+    
   }
-
-}
+  }
+ 
