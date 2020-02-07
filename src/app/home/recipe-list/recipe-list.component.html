@@ -5,8 +5,7 @@
             {{recipe.label}}
             <img class="image" [src]="recipe.image"/>
             <a href="{{recipe.url}}">check out the full recipe</a>
-            <input class="favorite" type="button" value= "&hearts;" 
-                    (click)="onFavorite(recipe)">
+            <button (click)="onFavorite(recipe)">&hearts;</button>
         </div>
     </div>
 </div>
