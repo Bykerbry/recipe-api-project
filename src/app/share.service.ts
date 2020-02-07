@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs'
 })
 export class ShareService {
 
-  private dataSource = new BehaviorSubject('default data');
+  private dataSource = new BehaviorSubject('default');
   currentData = this.dataSource.asObservable();
 
   constructor() { }
@@ -13,4 +13,5 @@ export class ShareService {
   changeData(data: any) {
     this.dataSource.next(data)
   }
+
 }
