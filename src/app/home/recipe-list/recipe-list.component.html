@@ -1,12 +1,20 @@
-<<<<<<< HEAD
+
 
 <ng-container *ngIf="recipes">
     <ng-container *ngFor="let recipe of recipes">
         <div class="recipe-container">
             <h3>{{ recipe.label }}</h3>
             <img class="image" [src]="recipe.image" />
+            <a href="{{recipe.url}}">See Recipe</a>
+            <button (click)="onFavorite(recipe)">&hearts;</button>
+        </div>
+    </ng-container>
+</ng-container>
+<div *ngIf="!recipes">Loading...</div>
+    
 
-<button (click)="getList()">test</button>
+
+<!-- <button (click)="getList()">test</button>
 <div *ngIf="recipes">
     <div *ngFor="let recipe of recipes">
         <div>
@@ -17,4 +25,4 @@
         </div>
     </ng-container>
 </ng-container>
-<div *ngIf="!recipes">Loading...</div>
+<div *ngIf="!recipes">Loading...</div> -->

@@ -33,4 +33,8 @@ a {
     background-color: #94AE89;
     border-radius: 2em;
     text-align: center;
+    padding: .25em .5em;
+}
+a:hover{
+    background-color: #000;
 }
