@@ -42,6 +42,7 @@ export class RecipeListComponent implements OnInit {
   sendData() {
     this._share.changeData(this.favorites)
   }
+  
   openDialog(recipe: any): void {
     let dialogRef = this.dialog.open(RecipePopupComponent, {
       data: recipe,
