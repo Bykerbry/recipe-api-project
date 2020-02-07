@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { IDiet } from '../../search-params.interface'
 
-
 @Component({
   selector: 'app-search-criteria',
   templateUrl: './search-criteria.component.html',
