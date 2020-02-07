@@ -1,15 +1,11 @@
-<button (click)="getList()">test</button>
-<div *ngIf="recipes">
-    <div *ngFor="let recipe of recipes">
-        <div>
-            {{recipe.label}}
+
+<ng-container *ngIf="recipes">
+    <ng-container *ngFor="let recipe of recipes">
+        <div class="recipe-container">
+            <h3>{{ recipe.label }}</h3>
             <img class="image" [src]="recipe.image" />
             <a href="{{recipe.url}}">check out the full recipe</a>
         </div>
-    </div>
-</div>
+    </ng-container>
+</ng-container>
 <div *ngIf="!recipes">Loading...</div>
-
-
-
-

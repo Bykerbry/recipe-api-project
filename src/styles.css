@@ -4,4 +4,13 @@ body {
     font-family: 'Prata', serif;
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; }
+
+
+
+.mat-focused .mat-form-field-label {
+    color: #444 !important;
+}
+.mat-form-field-ripple {
+    background-color: #444 !important;
+}
