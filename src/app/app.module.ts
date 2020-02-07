@@ -14,6 +14,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
+import { RecipePopupComponent } from './home/recipe-popup/recipe-popup.component';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import {MatRadioModule} from '@angular/material/radio';
     RecipeListComponent,
     SearchCriteriaComponent,
     FavoritesPageComponent,
-    HomeComponent
+    HomeComponent,
+    RecipePopupComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +36,11 @@ import {MatRadioModule} from '@angular/material/radio';
     MatButtonModule,
     MatInputModule,
     MatIconModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [RecipePopupComponent]
 })
 export class AppModule { }

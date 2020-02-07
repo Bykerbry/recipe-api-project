@@ -1,9 +1,8 @@
-<button (click)="getList()">test</button>
 <div *ngIf="recipes">
     <div *ngFor="let recipe of recipes">
         <div>
             {{recipe.label}}
-            <img class="image" [src]="recipe.image" />
+            <img class="image" [src]="recipe.image" (click)="openDialog(recipe)"/>
             <a href="{{recipe.url}}">check out the full recipe</a>
         </div>
     </div>
