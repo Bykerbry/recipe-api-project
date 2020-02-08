@@ -26,7 +26,7 @@ export class RecipeListComponent implements OnInit {
   ngOnInit() {
     this._service.getRecipes(this.searchParameters).subscribe(
       (data: any) => {
-      this.recipes = data.hits.map((index: any) => {
+      this.recipes = data.hits.map((index: any): IRecipe => {
        return {
         name: index.recipe.label,
         image: index.recipe.image,
