@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IParams } from '../search-params.interface'
+import { IParams } from '../interfaces'
 import { ShareService } from './../share.service'
 
 @Component({
@@ -23,5 +23,5 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     
   }
-  }
+}
  

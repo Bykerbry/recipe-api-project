@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RecipeApiService } from '../../recipe-api.service';
-import { IParams } from '../../search-params.interface';
+import { IParams, IRecipe } from '../../interfaces';
 import { MatDialog } from '@angular/material';
 import { ShareService } from '../../share.service';
 import { RecipePopupComponent } from '../recipe-popup/recipe-popup.component';
-import { IRecipe } from '../../recipe-interface'
+
 
 
 @Component({
@@ -21,7 +21,9 @@ export class RecipeListComponent implements OnInit {
   @Input() searchParameters: IParams;
   testArr: any;
   val1: any;
-  constructor(private _service: RecipeApiService, private _share: ShareService, public dialog: MatDialog) { }
+  constructor(private _service: RecipeApiService, private _share: ShareService, public dialog: MatDialog) { 
+    this._share.currentData.subscribe(data => this.favorites = data)
+  }
 
   ngOnInit() {
     this._service.getRecipes(this.searchParameters).subscribe(
@@ -70,4 +72,5 @@ export class RecipeListComponent implements OnInit {
       return "Not Listed";
     }
   }
+
 }
