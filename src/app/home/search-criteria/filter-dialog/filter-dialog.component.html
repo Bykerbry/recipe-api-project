@@ -1,0 +1,20 @@
+<h2>Add Filters</h2>
+<p>Calorie Range</p>
+<div class="calorie-range">
+    <mat-form-field class="mat-input">
+        <input matInput type="number" name="cal-min" placeholder="Min" [(ngModel)]="min">
+    </mat-form-field>
+    <mat-form-field class="mat-input">
+        <input matInput type='number' name="cal-max" placeholder="Max" [(ngModel)]="max">
+    </mat-form-field>
+</div>
+<p>Dietary Restrictions</p>
+<div class="diet-restrictions">
+    <div *ngFor="let diet of diets">
+        <mat-checkbox [(ngModel)]="diet.checked" name="diet.name">{{ dietDisplay(diet.name) }}</mat-checkbox>
+    </div>
+</div>
+<div class="btn-container">
+    <button mat-stroked-button (click)='updateFilters(min, max)' color="primary" mat-flat-button>Add Filters</button>
+</div>
+

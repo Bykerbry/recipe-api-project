@@ -3,15 +3,30 @@
 <ng-container *ngIf="recipes">
     <ng-container *ngFor="let recipe of recipes">
         <div class="recipe-container">
-            <h3>{{ recipe.label }}</h3>
-            <img class="image" [src]="recipe.image" (click)="openDialog(recipe)"/>
-            <a href="{{recipe.url}}">See Recipe</a>
-            <button (click)="onFavorite(recipe)">&hearts;</button>
+            <h3>{{ recipe.name }}</h3>
+            <div class="image-container">
+                <img class="image" [src]="recipe.image" (click)="openDialog(recipe)"/>
+                <a mat-button matSuffix mat-icon-button aria-label="Clear" (click)="onFavorite(recipe)">
+                    <mat-icon class="icon">favorite</mat-icon>
+                </a>
+            </div>
+            <div class="recipe-info">
+                <div class="calories-per-serving">
+                    <p>kcals/Serving</p>
+                    <p>{{ getCalories(recipe.calories, recipe.servings) }}</p>
+                </div>
+                <div class="prep-time">
+                    <p>Prep. Time</p>
+                    {{ recipe.prepTime ? recipe.prepTime : 'Not Listed' }}
+                </div>
+            </div>
+            <a class='see-recipe-btn' target="_blank" mat-flat-button color='primary' [href]="recipe.url">See Recipe</a>
         </div>
     </ng-container>
 </ng-container>
-<div *ngIf="!recipes">Loading...</div>
-    
+<div class='loading-text' *ngIf="!recipes && !error">Loading...</div>
+<div class='loading-text error' *ngIf="noResults">No recipes match that search criteria. Please refine your search & try again.</div>
+<div class='loading-text error' *ngIf="error">There was an error</div>
 
 
 

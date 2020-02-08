@@ -1,5 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Inject } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { IDiet } from '../../search-params.interface'
+import { FilterDialogComponent } from './filter-dialog/filter-dialog.component';
 
 @Component({
   selector: 'app-search-criteria',
@@ -7,7 +9,7 @@ import { IDiet } from '../../search-params.interface'
   styleUrls: ['./search-criteria.component.css']
 })
 export class SearchCriteriaComponent implements OnInit {
-  addingFilters: boolean = false;
+  
   caloryRange: string;
   dietRestrictions: IDiet[] = [
     { name: 'balanced', checked: false },
@@ -23,7 +25,7 @@ export class SearchCriteriaComponent implements OnInit {
   ]
   @Output() onRecipesSearched = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   onSearchRecipes(search: string) {
     this.onRecipesSearched.emit({
@@ -32,12 +34,23 @@ export class SearchCriteriaComponent implements OnInit {
       calories: this.caloryRange
     });
   }
-  addFilters() {
-    this.addingFilters = true;
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(FilterDialogComponent, {
+      data: this.dietRestrictions,
+      panelClass: 'custom-filter-dialog-container'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.caloryRange = result;
+      console.log(this.caloryRange, this.dietRestrictions);
+    });
   }
-  stopFilters() {
-    this.addingFilters = false;
+  
+  dietDisplay(diet: string) {
+    return diet.replace('-', ' ').substring(0, 1).toUpperCase() + diet.substring(1);
   }
+
   updateFilters(min: any, max: any) {
     if( min && max) {
       this.caloryRange = `&calories=${min}-${max}`;
@@ -48,12 +61,8 @@ export class SearchCriteriaComponent implements OnInit {
     } else {
       this.caloryRange = null;
     };
-    this.addingFilters = false;
+  }
 
-  }
-  dietDisplay(diet: string) {
-    return diet.replace('-', ' ').substring(0, 1).toUpperCase() + diet.substring(1);
-  }
   ngOnInit() {
   }
 

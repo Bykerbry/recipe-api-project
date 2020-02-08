@@ -4,6 +4,7 @@ import { IParams } from '../../search-params.interface';
 import { MatDialog } from '@angular/material';
 import { ShareService } from '../../share.service';
 import { RecipePopupComponent } from '../recipe-popup/recipe-popup.component';
+import { IRecipe } from '../../recipe-interface'
 
 
 @Component({
@@ -12,8 +13,10 @@ import { RecipePopupComponent } from '../recipe-popup/recipe-popup.component';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  recipes: any[];
-  favorites: any[] = []
+  recipes: IRecipe[];
+  favorites: IRecipe[] = []
+  noResults: boolean;
+  error: boolean;
 
   @Input() searchParameters: IParams;
   testArr: any;
@@ -21,26 +24,35 @@ export class RecipeListComponent implements OnInit {
   constructor(private _service: RecipeApiService, private _share: ShareService, public dialog: MatDialog) { }
 
   ngOnInit() {
-    this._service.getRecipes(this.searchParameters).subscribe((data: any) => {
-      this.recipes = data.hits.map((index: any) => index.recipe);
+    this._service.getRecipes(this.searchParameters).subscribe(
+      (data: any) => {
+      this.recipes = data.hits.map((index: any) => {
+       return {
+        name: index.recipe.label,
+        image: index.recipe.image,
+        url: index.recipe.url,
+        calories: index.recipe.calories,
+        servings: index.recipe.yield,
+        prepTime: index.recipe.totalTime,
+        ingredients: index.recipe.ingredientLines
+       }
+      });
+      this.noResults = !this.recipes[0] 
+      this.error = false;
+    }, error => {
+      console.log(error);
+      this.error = true;
     })
-  }
-  getList() {
-    console.log(this.searchParameters);
-    console.log(this.recipes);
   }
 
   onFavorite(recipes) {
     this.favorites.push(recipes);
     console.log(this.favorites);
     this._share.changeData(this.favorites)
-
   }
+
   onRemove(recipe) {
     this.favorites.splice(recipe)
-  }
-  sendData() {
-    this._share.changeData(this.favorites)
   }
   
   openDialog(recipe: any): void {
@@ -51,4 +63,11 @@ export class RecipeListComponent implements OnInit {
     })
   }
 
+  getCalories(kcal: number, servings: number) {
+    if(kcal && servings) {
+      return Math.round(kcal/servings);
+    } else {
+      return "Not Listed";
+    }
+  }
 }

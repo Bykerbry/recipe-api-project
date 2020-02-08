@@ -1,6 +1,6 @@
-<h1 mat-dialog-title>{{data.label}}</h1>
+<h1 mat-dialog-title>{{data.name}}</h1>
 <div mat-dialog-content>
-    <div *ngFor="let ingredient of data.ingredientLines" class="dialog-content">
+    <div *ngFor="let ingredient of data.ingredients" class="dialog-content">
         <li>{{ingredient}}</li>
     </div>
 </div>

@@ -10,12 +10,14 @@ import { SearchCriteriaComponent } from './home/search-criteria/search-criteria.
 import { FavoritesPageComponent } from 'src/app/favorites-page/favorites-page.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material';
 import { RecipePopupComponent } from './home/recipe-popup/recipe-popup.component';
+import { FilterDialogComponent } from './home/search-criteria/filter-dialog/filter-dialog.component';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { RecipePopupComponent } from './home/recipe-popup/recipe-popup.component
     SearchCriteriaComponent,
     FavoritesPageComponent,
     HomeComponent,
-    RecipePopupComponent
+    RecipePopupComponent,
+    FilterDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -37,10 +40,14 @@ import { RecipePopupComponent } from './home/recipe-popup/recipe-popup.component
     MatInputModule,
     MatIconModule,
     MatRadioModule,
+    MatCheckboxModule,
     MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [RecipePopupComponent]
+  entryComponents: [
+    RecipePopupComponent,
+    FilterDialogComponent
+  ]
 })
 export class AppModule { }

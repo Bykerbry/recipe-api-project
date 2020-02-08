@@ -7,3 +7,11 @@
 .btns > button {
     margin: 0 .5em;
 }
+
+.mat-flat-button:hover {
+    background-color: #94AE89;
+}
+
+.mat-input {
+    width: 50%;
+}
