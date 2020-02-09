@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ShareService } from './../share.service'
+import { ShareService } from './../share.service';
 
 @Component({
   selector: 'app-favorites-page',
@@ -10,12 +10,21 @@ import { ShareService } from './../share.service'
     ]
 })
 export class FavoritesPageComponent implements OnInit {
-  favorites: [];
+  favorites: any[];
+ 
   constructor (private _share: ShareService) {
     this._share.currentData.subscribe((data: any) => this.favorites = data)
    }
-
+  
   ngOnInit() {
   }
 
-}
+onRemove(favorite) {
+  var index = this.favorites.indexOf(favorite);
+  this.favorites.splice(index, 1); 
+}};
+
+
+
+
+
