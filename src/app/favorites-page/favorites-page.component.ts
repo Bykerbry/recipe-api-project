@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ShareService } from './../share.service';
+import { IRecipe } from './../interfaces'
 
 @Component({
   selector: 'app-favorites-page',
@@ -9,9 +10,8 @@ import { ShareService } from './../share.service';
      './favorites-page.component.css'
     ]
 })
-export class FavoritesPageComponent implements OnInit {
-  favorites: any[];
- 
+export class FavoritesPageComponent implements OnInit, OnDestroy {
+  favorites: IRecipe[];
   constructor (private _share: ShareService) {
     this._share.currentData.subscribe((data: any) => this.favorites = data)
    }
@@ -19,12 +19,12 @@ export class FavoritesPageComponent implements OnInit {
   ngOnInit() {
   }
 
-onRemove(favorite) {
-  var index = this.favorites.indexOf(favorite);
-  this.favorites.splice(index, 1); 
-}};
+  onRemove(favorite: IRecipe) {
+    var index = this.favorites.indexOf(favorite);
+    this.favorites.splice(index, 1); 
+  };
 
-
-
-
-
+  ngOnDestroy() {
+    this._share.changeData(this.favorites);
+  }
+}

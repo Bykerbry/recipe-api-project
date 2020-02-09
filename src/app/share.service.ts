@@ -5,7 +5,8 @@ import { BehaviorSubject } from 'rxjs'
 })
 export class ShareService {
 
-  private dataSource = new BehaviorSubject('default');
+  private dataSource = new BehaviorSubject([])
+
   currentData = this.dataSource.asObservable();
 
   constructor() { }

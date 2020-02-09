@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { IParams } from './search-params.interface';
 
 
 @Component({

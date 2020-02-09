@@ -3,13 +3,26 @@
 </p>
 
 <nav>
-  <a routerLink="/Home" routerLinkActive="active" mat-button matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+  <a routerLink="/Home" 
+  routerLinkActive="active" 
+  mat-button 
+  matSuffix 
+  mat-icon-button 
+  aria-label="Clear" 
+  (click)="value=''">
     <mat-icon>home</mat-icon>
   </a>
   <a class="router-text" routerLink="/Home" routerLinkActive="active">Home</a> 
-  <a routerLink="/Favorites" routerLinkActive="active" mat-button matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+  <a routerLink="/Favorites" 
+  routerLinkActive="active"
+   mat-button 
+   matSuffix 
+   mat-icon-button 
+   aria-label="Clear" 
+   (click)="value=''">
     <mat-icon>favorite</mat-icon>
   </a>
   <a class="router-text" routerLink="/Favorites" routerLinkActive="active">Favorites</a>
 </nav>
+
 <router-outlet></router-outlet>

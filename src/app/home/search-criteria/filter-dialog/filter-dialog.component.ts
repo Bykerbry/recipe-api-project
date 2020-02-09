@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { IDiet } from 'src/app/search-params.interface';
+import { IDiet } from 'src/app/interfaces';
 
 
 @Component({
@@ -18,7 +18,8 @@ export class FilterDialogComponent implements OnInit {
     return diet.replace('-', ' ').substring(0, 1).toUpperCase() + diet.substring(1);
   }
 
-  updateFilters(min: any, max: any) {
+  updateFilters(min: number, max: number) {
+    console.log(typeof min);
     if( min && max) {
       this.caloryRange = `&calories=${min}-${max}`;
     } else if(!min && max) {

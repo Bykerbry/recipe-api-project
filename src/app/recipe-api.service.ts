@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IParams, IDiet } from './search-params.interface'
+import { IParams, IDiet } from './interfaces'
 
 
 @Injectable({

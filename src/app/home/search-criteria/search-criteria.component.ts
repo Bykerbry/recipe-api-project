@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { IDiet } from '../../search-params.interface'
+import { IDiet } from '../../interfaces'
 import { FilterDialogComponent } from './filter-dialog/filter-dialog.component';
 
 @Component({
@@ -41,12 +41,10 @@ export class SearchCriteriaComponent implements OnInit {
       panelClass: 'custom-filter-dialog-container'
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       this.caloryRange = result;
-      console.log(this.caloryRange, this.dietRestrictions);
     });
   }
-  
+
   dietDisplay(diet: string) {
     return diet.replace('-', ' ').substring(0, 1).toUpperCase() + diet.substring(1);
   }
