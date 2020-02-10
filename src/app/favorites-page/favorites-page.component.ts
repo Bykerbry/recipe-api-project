@@ -24,6 +24,14 @@ export class FavoritesPageComponent implements OnInit, OnDestroy {
     this.favorites.splice(index, 1); 
   };
 
+  getCalories(kcal: number, servings: number) {
+    if(kcal && servings) {
+      return Math.round(kcal/servings);
+    } else {
+      return "Not Listed";
+    }
+  }
+
   ngOnDestroy() {
     this._share.changeData(this.favorites);
   }

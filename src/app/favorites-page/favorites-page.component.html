@@ -6,18 +6,19 @@
         </h3>
         <img class="image" [src]="favorite.image" (click)="openDialog(favorite)"/>
         <a mat-flat-button color='primary' [href]="favorite.url">See Recipe</a> <br>
-    </div>
+    
 
-<!-- <div class="recipe-info">
-    <div class="calories-per-serving">
-        <p>kcals/Serving</p>
-        <p>{{ getCalories(favorite.calories, favorite.servings) }}</p>
+    <div class="recipe-info">
+        <div class="calories-per-serving">
+            <p>kcals/Serving</p>
+            <p>{{ getCalories(favorite.calories, favorite.servings) }}</p>
+        </div>
+        <div class="prep-time">
+            <p>Prep. Time</p>
+            {{ favorite.prepTime ? favorite.prepTime : 'Not Listed' }}
+        </div>
     </div>
-    <div class="prep-time">
-        <p>Prep. Time</p>
-        {{ favorite.prepTime ? favorite.prepTime : 'Not Listed' }}
-    </div>
-</div>  -->
+</div>
 </ng-container>
 
 
