@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ShareService } from './../share.service';
 import { IRecipe } from './../interfaces'
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material';
+import { RecipePopupComponent } from '../home/recipe-popup/recipe-popup.component';
 
 
 @Component({
@@ -14,7 +16,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class FavoritesPageComponent implements OnInit, OnDestroy {
   favorites: IRecipe[];
-  constructor (private _share: ShareService, private _snackBar: MatSnackBar) {
+  constructor (private _share: ShareService, private _snackBar: MatSnackBar, public dialog: MatDialog) {
     this._share.currentData.subscribe((data: any) => this.favorites = data)
    }
   
@@ -41,6 +43,14 @@ export class FavoritesPageComponent implements OnInit, OnDestroy {
   openSnackBar() {
     this._snackBar.open('Removed from your favorites', 'dismiss', {
       duration: 3000
+    })
+  }
+
+  openDialog(recipe: any): void {
+    let dialogRef = this.dialog.open(RecipePopupComponent, {
+      data: recipe,
+      width: "50%",
+      panelClass: 'custom-dialog-container'
     })
   }
 
