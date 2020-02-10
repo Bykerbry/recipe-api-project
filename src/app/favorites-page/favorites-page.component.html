@@ -1,7 +1,7 @@
 <div *ngFor = "let favorite of favorites"> {{ favorite.label}}
     <img class="image" [src]="favorite.image"/>
     <a href="{{favorite.url}}">check out the full recipe</a>
-    <button class = "remove" (click) = "onRemove(favorite)">X</button>
+    <button class = "remove" (click) = "onRemove(favorite)" (click)="openSnackBar()">X</button>
 </div>
 
 

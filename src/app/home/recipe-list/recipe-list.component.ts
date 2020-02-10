@@ -4,8 +4,7 @@ import { IParams, IRecipe } from '../../interfaces';
 import { MatDialog } from '@angular/material';
 import { ShareService } from '../../share.service';
 import { RecipePopupComponent } from '../recipe-popup/recipe-popup.component';
-
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-recipe-list',
@@ -21,7 +20,7 @@ export class RecipeListComponent implements OnInit {
   @Input() searchParameters: IParams;
   testArr: any;
   val1: any;
-  constructor(private _service: RecipeApiService, private _share: ShareService, public dialog: MatDialog) { 
+  constructor(private _service: RecipeApiService, private _share: ShareService, public dialog: MatDialog, private _snackBar: MatSnackBar) { 
     this._share.currentData.subscribe(data => this.favorites = data)
   }
 
@@ -72,5 +71,12 @@ export class RecipeListComponent implements OnInit {
       return "Not Listed";
     }
   }
+  openSnackBar() {
+    this._snackBar.open('added to your favorites', 'dismiss', {
+      duration: 3000
+    })
+  }
 
 }
+
+

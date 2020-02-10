@@ -5,8 +5,8 @@
         <div class="recipe-container">
             <h3>{{ recipe.name }}</h3>
             <div class="image-container">
-                <img class="image" [src]="recipe.image" (click)="openDialog(recipe)"/>
-                <a mat-button matSuffix mat-icon-button aria-label="Clear" (click)="onFavorite(recipe)">
+                <img class="image" [src]="recipe.image" (click)="openDialog(recipe)" matTooltip="click the image to see ingredients"/>
+                <a mat-button matSuffix mat-icon-button aria-label="Clear" (click)="onFavorite(recipe)" (click)="openSnackBar()">
                     <mat-icon class="icon">favorite</mat-icon>
                 </a>
             </div>
