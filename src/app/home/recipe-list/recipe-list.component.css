@@ -34,16 +34,19 @@ a:hover{
 .mat-icon-button{
     transform: scale(1.25);
     position: absolute;
-    top: 1.25rem;
-    right: 1.25rem;
+    top: 1.5rem;
+    right: 1.5rem;
 }
 
 .mat-icon-button:hover {
-    color: rgb(200, 0, 0);
+    color: rgb(255, 0, 0);
 }
 
 .icon {
     transform: scale(1.25);
+    background-color: #ffffff50;
+    padding: 4px;
+    border-radius: 50%;
 }
 
 .recipe-info {
