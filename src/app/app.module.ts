@@ -18,7 +18,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material';
 import { RecipePopupComponent } from './home/recipe-popup/recipe-popup.component';
 import { FilterDialogComponent } from './home/search-criteria/filter-dialog/filter-dialog.component';
-
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { FilterDialogComponent } from './home/search-criteria/filter-dialog/filt
     FavoritesPageComponent,
     HomeComponent,
     RecipePopupComponent,
-    FilterDialogComponent
+    FilterDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,9 @@ import { FilterDialogComponent } from './home/search-criteria/filter-dialog/filt
     MatIconModule,
     MatRadioModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

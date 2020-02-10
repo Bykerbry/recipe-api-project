@@ -3,7 +3,7 @@
         <div class="recipe-container">
             <h3>
             {{ favorite.name }}
-            <mat-icon (click)="value='';onRemove(favorite)">delete</mat-icon>
+            <mat-icon (click)="value='';onRemove(favorite)" (click)="openSnackBar()">delete</mat-icon>
             </h3>
             <img class="image" [src]="favorite.image" (click)="openDialog(favorite)"/>
             <a mat-flat-button color='primary' [href]="favorite.url">See Recipe</a> <br>

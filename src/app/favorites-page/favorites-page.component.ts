@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ShareService } from './../share.service';
 import { IRecipe } from './../interfaces'
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-favorites-page',
@@ -12,7 +14,7 @@ import { IRecipe } from './../interfaces'
 })
 export class FavoritesPageComponent implements OnInit, OnDestroy {
   favorites: IRecipe[];
-  constructor (private _share: ShareService) {
+  constructor (private _share: ShareService, private _snackBar: MatSnackBar) {
     this._share.currentData.subscribe((data: any) => this.favorites = data)
    }
   
@@ -35,4 +37,11 @@ export class FavoritesPageComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this._share.changeData(this.favorites);
   }
+
+  openSnackBar() {
+    this._snackBar.open('Removed from your favorites', 'dismiss', {
+      duration: 3000
+    })
+  }
+
 }
