@@ -11,6 +11,8 @@ import { IDiet } from 'src/app/interfaces';
 export class FilterDialogComponent implements OnInit {
 
   caloryRange: string;
+  min: number;
+  max: number;
 
   constructor(public dialogRef: MatDialogRef<FilterDialogComponent>, @Inject(MAT_DIALOG_DATA) public diets: IDiet[]) { }
 

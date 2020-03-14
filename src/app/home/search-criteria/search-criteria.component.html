@@ -1,16 +1,12 @@
 <div class="search-container">
     <div class="search-bar">
         <mat-form-field style='text-align: center;'>
-            <input matInput type="text" placeholder="Enter Search Here" name='search' id="search" [(ngModel)]="value"
+            <input matInput type="text" placeholder="Enter Search Here" name='search' id="search"
                 [(ngModel)]="searchText" (keyup.enter)="onSearchRecipes(searchText)">
-            <!-- <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-                <mat-icon>close</mat-icon>
-            </button> -->
-            <!-- Commented out above becuase the search text moved off center once the button appeared --->
         </mat-form-field>
     </div>
     <div class="btns">
-        <button (click)='onSearchRecipes(searchText)' color='primary' [disabled]='addingFilters' mat-flat-button>
+        <button (click)='onSearchRecipes(searchText)' color='primary' mat-flat-button>
             Search
         </button>
         <button (click)='openDialog()' color='primary' mat-flat-button>Filter</button>

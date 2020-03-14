@@ -10,6 +10,7 @@ import { FilterDialogComponent } from './filter-dialog/filter-dialog.component';
 })
 export class SearchCriteriaComponent implements OnInit {
   
+  searchText: string;
   caloryRange: string;
   dietRestrictions: IDiet[] = [
     { name: 'balanced', checked: false },
