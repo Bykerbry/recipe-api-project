@@ -48,7 +48,6 @@ export class RecipeListComponent implements OnInit {
 
   onFavorite(recipes) {
     this.favorites.push(recipes);
-    console.log(this.favorites);
     this._share.changeData(this.favorites)
   }
 

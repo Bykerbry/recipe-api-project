@@ -6,7 +6,7 @@
             <mat-icon (click)="value='';onRemove(favorite)" (click)="openSnackBar()">delete</mat-icon>
             </h3>
             <img class="image" [src]="favorite.image" (click)="openDialog(favorite)"/>
-            <a mat-flat-button color='primary' [href]="favorite.url">See Recipe</a> <br>
+            <a mat-flat-button color='primary' target='_blank' [href]="favorite.url">See Recipe</a> <br>
         
     
         <div class="recipe-info">

@@ -19,7 +19,6 @@ export class FilterDialogComponent implements OnInit {
   }
 
   updateFilters(min: number, max: number) {
-    console.log(typeof min);
     if( min && max) {
       this.caloryRange = `&calories=${min}-${max}`;
     } else if(!min && max) {
