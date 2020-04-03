@@ -14,8 +14,8 @@ html, body {
     height: 100%; 
 }
 .search-bar > .mat-form-field  {
-    width: 33vw;
-    font-size: 1.5em;
+    width: 67vw;
+    font-size: 1.25rem;
 }
 .mat-focused .mat-form-field-label {
     color: #555 !important;
@@ -33,4 +33,12 @@ html, body {
 }
 .custom-filter-dialog-container .mat-dialog-container {
     background-color: #D5FFD9;
+}
+
+@media screen and (min-width: 600px) {
+    .search-bar > .mat-form-field  {
+        width: 50vw;
+        font-size: 1.5em;
+        max-width: 400px;
+    }
 }

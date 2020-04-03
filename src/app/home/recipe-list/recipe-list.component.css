@@ -7,7 +7,7 @@
     margin: 2rem 1rem;
     border-radius: 1rem;
     word-wrap: break-word; 
-    width: 28vw;
+    width: 80vw;
     box-shadow: 0px 0px 20px;
 }
 
@@ -23,7 +23,7 @@ h3 {
 
 .image {
     margin: 1rem;
-    max-width: 100%;
+    width: 60vw;
     cursor: pointer;
 }
 
@@ -66,5 +66,39 @@ a:hover{
 }
 .error {
     color: red;
+}
+
+@media screen and (min-width: 480px) {
+    .recipe-container {
+        width: 70vw;
+    }
+
+    .image {
+        width: 50vw;
+    }
+
+}
+ 
+@media screen and (min-width: 600px) {
+    .recipe-container {
+        width: 40vw;
+    }
+
+    .image {
+        width: 30vw;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .recipe-container {
+        width: 40vw;
+        max-width: 350px;
+    
+    }
+
+    .image {
+        width: 30vw;
+        max-width: 262px;
+    }
 }
 
